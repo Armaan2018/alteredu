@@ -1,0 +1,20 @@
+{
+    "name": "armaan2018/alteredu",
+    "description": "this is another test",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "armaan",
+            "email": "armaan@gmail.com"
+        }
+    ],
+
+     "autoload":{
+        "psr-4" :{
+            "Edu\\board\\" : "app\\"
+        } 
+     },
+     
+    "require": {}
+}
