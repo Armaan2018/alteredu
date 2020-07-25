@@ -25,7 +25,7 @@
                                                                     </li>
                                                                     <li><a href="docs.html">Help</a></li>
                                                                     <li class="divider"></li>
-                                                                    <li><a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a></li>
+                                                                    <li><a href="?logout=success" data-toggle="ajaxModal">Logout</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>

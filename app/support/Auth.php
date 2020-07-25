@@ -11,12 +11,13 @@ use Edu\board\support\Database;
 
 
 
+
 /**
  * authentication management
  */
 class Auth extends Database
 {
-	 public function UserLoginSystem($emailuser,$password){
+	 public function UserLoginSystem($emailuser,$pass){
 
 	 	
 
@@ -30,13 +31,14 @@ class Auth extends Database
 
 	 	      if ($num == 1) {
 
-	 	      	if (password_verify($password,$login_user_data['pass'])) {
+	 	      	if (password_verify($pass,$login_user_data['pass'])) {
 
-	 	      		$_SESSION['id']     = $login_user_data['id'];
-	 	      		$_SESSION['name']   = $login_user_data['name'];
-	 	      		$_SESSION['photo']  = $login_user_data['photo'];
-	 	      		$_SESSION['email']  = $login_user_data['email'];
-	 	      		$_SESSION['role']   = $login_user_data['role'];
+	 	      		$_SESSION['id']           = $login_user_data['id'];
+	 	      		$_SESSION['pass']     = $login_user_data['pass'];
+	 	      		$_SESSION['name']         = $login_user_data['name'];
+	 	      		$_SESSION['photo']        = $login_user_data['photo'];
+	 	      		$_SESSION['email']        = $login_user_data['email'];
+	 	      		$_SESSION['role']         = $login_user_data['role'];
 
 	 	      		header("Location:dashboard.php");
 	 	      		 
@@ -63,6 +65,19 @@ class Auth extends Database
 
              return $data =  $this -> dataCheck('user',$emailuser);
 
+
+	 }
+
+	 /**
+	  * logout system
+	  */
+
+
+	 public function userLogout()
+	 {
+                   
+                   session_destroy();
+                   header("location:index.php");
 
 	 }
 

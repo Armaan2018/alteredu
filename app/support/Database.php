@@ -72,6 +72,143 @@ abstract class Database
 	}
 
 
+
+
+
+/*
+   //update method
+  public function update($tbl ,$id, array $data)
+  {
+      $query_string = '';
+
+  	foreach($data as $key => $val) {
+  		
+
+             $query_string .= "$key = '$val', "; 
+
+
+
+  	}
+
+  	$query_array = explode(' ', $query_string);
+
+    array_pop($query_array);
+    array_pop($query_array);
+
+
+  $final_query_string = implode(' ', $query_array);
+
+  $stmt =  $this -> connection() -> prepare("UPDATE $tbl SET $final_query_string WHERE id='$id' ");
+
+
+
+  $stmt -> execute();
+
+
+
+  }
+
+
+*/
+
+
+
+
+
+
+
+
+	<?php 
+		public function update($tbl, $id, array $data)
+		{
+			$query_string = '';
+			foreach($data as $key => $val){
+
+				$query_string .= "$key = '$val' , ";
+
+			}
+
+			$query_array = explode(' ', $query_string);
+			array_pop($query_array);
+			array_pop($query_array);
+
+			$final_query_string =  implode(' ', $query_array);
+
+			$stmt = $this -> connection() -> prepare("UPDATE $tbl SET $final_query_string WHERE id='$id' ");
+			$stmt -> execute();
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ public function dataCheckPro($tbl,array $data,$condition = 'AND')
+
+  {
+
+            $query_string = '';
+    foreach ($data as $key => $val) {
+
+
+    
+              $query_string .= $key . "='$val' AND ";
+
+
+    }
+
+
+  $query_array = explode(' ', $query_string);
+
+    array_pop($query_array);
+    array_pop($query_array);
+
+
+    $finl_query_string = implode(' ', $query_array);
+
+
+
+
+
+
+
+
+
+  			$stmt = $this -> connection() -> prepare("SELECT * FROM $tbl WHERE $finl_query_string");
+
+			$stmt -> execute();
+
+
+			
+
+       
+
+  }
+
+
+
+
+
+
+
 	
 
 
