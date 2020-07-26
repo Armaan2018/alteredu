@@ -118,7 +118,7 @@ abstract class Database
 
 
 
-	<?php 
+
 		public function update($tbl, $id, array $data)
 		{
 			$query_string = '';
@@ -202,6 +202,11 @@ abstract class Database
        
 
   }
+
+
+
+
+  
 
 
 
